@@ -1,0 +1,90 @@
+flora packages help
+===================
+
+flora added 3 folders to flora/profiles called 'package.mask', 'sets'
+and 'docs'. These folders are there for a special reason and you 
+should be aware of some rules that need to be followed to let us all
+live peaceful together.
+
+What are the folders there for?
+===============================
+
+* flora/profiles/docs
+	This folder is there for docs if you need a special setup,
+	like using sets for unmasking special stuff.
+* flora/profiles/sets
+	This folder is there do define a special unmasking set or
+	useflagset for packages you sent to flora, your sets should g
+	there into subfolders.
+* flora/profiles/package.mask
+	And finaly as you might already thought here you can set a 
+	special mask for packages you submitted. Please don't mask
+	packages in here you haven't submitted, if you do so it could
+	result in enourmous trouble for the devs and that is
+	something we would like to avoid.
+
+rules for flora/profiles/docs
+=============================
+
+In 'flora/profiles/docs' you will insert docs for special stuff like
+unmasking your ebuilds if you masked them. Please try to avoid a mask
+of ebuilds but sometimes it is not possible to avoid it we know.
+your doc should be named README.<package> so users can easyly find it.
+
+rules for flora/profiles/sets
+=============================
+
+In 'flora/profiles/sets' you will insert sets to unmask several ebuilds
+at a time, like if you commit 5 packages that are needed to build and
+for testing purpose you decide to mask them first, you can define a
+set here to unmask them. These sets go in subfolders of 
+'flora/profiles/sets' so you would result in a structure like
+
+	flora/profiles/sets/<packagename>/<packagename>.unmask
+
+The content of such an unmask file could look like that:
+	
+	#############################################################
+	# unmask for <packagename>
+	#############################################################
+	=<category>/<packagename>-<version>
+	...
+
+in the docs you should then tell the user to link 
+
+	'portage-path/profiles/sets/<packagename>/<packagename>.unmask'
+
+into /etc/portage/package.unmask/<packagename> or add the stuff of the
+file to /etc/portage/package.unmask depending on their setup. :)
+
+rules for flora/profiles/packages.mask
+======================================
+
+Here we use the strongest rules that need to be followed!
+
+* Don't mask any core packages! You are only allowed to mask packages
+  you are responsable for. Also if you try to commit core packages
+  we could get angry, so please talk about these packages first with
+  us. We don't bite but react angry if you try to kill our core :)
+* Try to avoid a mask of packages if possible! :)
+* Mask reasons have to be significant and should be explained why.
+  Remember you are responsable for the mask no Core Team member will
+  remove them!
+* Users that didn't set the mask are not allowed to remove it! Only
+  submitter is allowed to do so! :)
+
+Four simple rules that you must follow so we don't get into trouble :)
+
+For 'flora/profiles/packages.mask' we advice the following setup:
+
+	flora/profiles/packages.mask/funtoo-flora-<username>
+
+so we don't have to care about 3 guys editing the same file and giving
+us headaches when we merge :)
+
+if you follow these few rules we are sure we all make it up in a good
+manner here and live next to each other in peace.
+
+Greetings
+
+Martin 'golodhrim' Scholz
